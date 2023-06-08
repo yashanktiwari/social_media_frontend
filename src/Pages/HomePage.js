@@ -41,7 +41,9 @@ const HomePage = () => {
     if (userStore) {
       if (userStore.user?.mobile?.length === 0) {
         navigate(`/profile/${userStore.user._id}`);
+        console.log("mobile not set");
       } else {
+        console.log("mobile set");
         // get all the posts of the people that you are following
         if(userStore.user?._id) {
           axios.post(`${base_uri}/getallposts`, { userid: userStore.user._id })
